@@ -46,4 +46,7 @@ public class Projeto {
     @Column(name = "risco", length = 45)
     private String risco;
 
+    @Column(name = "idgerente")
+    private Long idGerente;
+
 }
