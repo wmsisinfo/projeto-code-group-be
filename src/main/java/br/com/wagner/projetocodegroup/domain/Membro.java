@@ -1,13 +1,15 @@
 package br.com.wagner.projetocodegroup.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "membros")
 public class Membro {
     @Id
