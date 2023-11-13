@@ -1,9 +1,17 @@
 package br.com.wagner.projetocodegroup.dto.projetos;
 
 import br.com.wagner.projetocodegroup.domain.Projeto;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public class ReadProjetoDto implements Serializable {
 
     public ReadProjetoDto() {

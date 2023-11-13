@@ -7,6 +7,7 @@ import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
 import br.com.wagner.projetocodegroup.services.exception.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -17,31 +18,44 @@ import java.net.URI;
 @RequestMapping(value="/api/v1/projeto")
 public class ProjetoResource {
 
-    @Autowired
-    ProjetoService service;
+    final ProjetoService service;
 
-    @RequestMapping(value="/{id}", method= RequestMethod.GET)
+    public ProjetoResource(ProjetoService service) {
+        this.service = service;
+    }
+
+    @GetMapping(value="/{id}")
     public ResponseEntity<?> find(@PathVariable Long id){
         var projeto = service.find(id);
-        return ResponseEntity.ok().body(new ReadProjetoDto(projeto));
+        var dto = new ReadProjetoDto(projeto);
+        return ResponseEntity.ok().body(dto);
     }
 
-    @RequestMapping(method=RequestMethod.POST)
+    @Transactional
+    @PostMapping
     public ResponseEntity<?> insert(@Valid @RequestBody CreateProjetoDto dto) {
         var obj = service.save(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
+        return getObjectResponseEntity(obj);
     }
 
-    @RequestMapping(method=RequestMethod.PUT)
+    @Transactional
+    @PutMapping
     public ResponseEntity<?> update(@Valid @RequestBody UpdateProjetoDto dto) {
         Projeto obj = service.update(dto);
-        return ResponseEntity.ok().body(obj);
+        return getObjectResponseEntity(obj);
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    @DeleteMapping(value="/{id}")
+    @Transactional
     public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    private static ResponseEntity<Object> getObjectResponseEntity(Projeto obj) {
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+
+
 }

@@ -9,3 +9,5 @@ Ksrc/main/java/br/com/wagner/projetocodegroup/resources/ProjetoResource.java,f/
 Ssrc/main/java/br/com/wagner/projetocodegroup/services/exception/ProjetoService.java,4/8/4848b935f2db6e538d6cc06aa2f38d179260004c
 p
 @src/main/java/br/com/wagner/projetocodegroup/domain/Projeto.java,f/d/fddf5dbca5abaeaabbf3a3a158e1b641a77b00ab
+}
+Msrc/main/java/br/com/wagner/projetocodegroup/dto/projetos/ReadProjetoDto.java,1/5/15fc972439ce4de01cc045379cdce917196447d3
