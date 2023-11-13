@@ -49,3 +49,11 @@ Ksrc/main/java/br/com/wagner/projetocodegroup/domain/enums/RiscoProjeto.java,d/
 Lsrc/main/java/br/com/wagner/projetocodegroup/domain/enums/StatusProjeto.java,6/f/6fcb49a132f9ff18fa71e4635569a0001f053f6e
 o
 ?src/main/java/br/com/wagner/projetocodegroup/domain/Pessoa.java,8/f/8f6c740050cb74555116672eac3da51506a507ac
+‚
+Rsrc/main/java/br/com/wagner/projetocodegroup/resources/exception/FieldMessage.java,4/a/4a88e41327f2152b2c01a57e9bc95e778c50de14
+ƒ
+Ssrc/main/java/br/com/wagner/projetocodegroup/resources/exception/StandardError.java,7/f/7fb08f6eea434fc2b0ec17c903e86ea0bfbd3c91
+…
+Usrc/main/java/br/com/wagner/projetocodegroup/resources/exception/ValidationError.java,6/e/6ef5b4931dbe12d5fa863995dfde06cfda23a058
+}
+Msrc/main/java/br/com/wagner/projetocodegroup/ProjetoCodeGroupApplication.java,5/0/503c9bafd8bcc13ea445d753cdbce604f8a7ac43
