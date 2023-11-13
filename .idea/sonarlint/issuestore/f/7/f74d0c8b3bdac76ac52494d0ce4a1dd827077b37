@@ -1,9 +1,17 @@
 
-i
-java:S1452"&Remove usage of generic wildcard type.(ËîÊ¡8‰çéÉ¼1J$e6506853-8764-4f3a-b109-445da917d156
-n
-java:S1452$"&Remove usage of generic wildcard type.(Ëó‹åûÿÿÿÿ8‹çéÉ¼1J$111d1bf3-9850-4659-a32c-9e08241f8757
-i
-java:S1452+"&Remove usage of generic wildcard type.(ÖÁ¶8‹çéÉ¼1J$ec0f6e12-115f-4ce0-b79d-58fe424bfedf
-i
-java:S14522"&Remove usage of generic wildcard type.(ˆŸ‚»8ç’‰Ë¼1J$d8213273-290d-46dd-8399-d1897079af66
+
+AYvJl4Ske7unDVIJx2Pa
+java:S1452"&Remove usage of generic wildcard type.(ËîÊ¡8ˆ£´¼1J$cdc2d237-7127-4268-a0e0-a9f94561d3d8
+„
+AYvJl4Ske7unDVIJx2Pb
+java:S1452$"&Remove usage of generic wildcard type.(Ëó‹åûÿÿÿÿ8ˆ£´¼1J$b809b75b-31f7-4762-bee4-877e60086d31
+
+AYvJl4Ske7unDVIJx2Pc
+java:S1452+"&Remove usage of generic wildcard type.(ÖÁ¶8ˆ£´¼1J$31de671e-e80d-486e-a10a-e80833d889da
+
+AYvJl4Ske7unDVIJx2Pd
+java:S14522"&Remove usage of generic wildcard type.(ˆŸ‚»8ˆ£´¼1J$04a2878b-f51a-4f52-af19-7076764f5b0c
+£
+java:S1128"`Remove this unused import 'org.springframework.web.servlet.support.ServletUriComponentsBuilder'.(™ƒ¹8“Ò¼Ï¼1J$6dbb5e47-90aa-4116-8740-09b7b733a8e2
+l
+java:S1128")Remove this unused import 'java.net.URI'.(Ö¦¨°8“Ò¼Ï¼1J$cff9b632-d54d-4eac-9746-8b8e6fb11bde
