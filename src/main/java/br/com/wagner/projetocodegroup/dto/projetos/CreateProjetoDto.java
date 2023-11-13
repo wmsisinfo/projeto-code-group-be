@@ -20,11 +20,8 @@ public class CreateProjetoDto implements Serializable {
     @NotNull
     private LocalDate dataInicio;
     @NotNull
-    private Long gerenteId;
-    @NotNull
     private LocalDate dataPrevisaoFim;
 
-    @NotNull
     private LocalDate dataFim;
 
     @NotEmpty
@@ -34,6 +31,7 @@ public class CreateProjetoDto implements Serializable {
 
     @NotNull
     private Double orcamento;
+    @NotNull
     private String risco;
     @NotNull
     private Long idGerente;

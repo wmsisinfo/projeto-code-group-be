@@ -8,8 +8,10 @@ import br.com.wagner.projetocodegroup.services.exception.ProjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping(value="/api/v1/projeto")
@@ -27,7 +29,8 @@ public class ProjetoResource {
     @RequestMapping(method=RequestMethod.POST)
     public ResponseEntity<?> insert(@Valid @RequestBody CreateProjetoDto dto) {
         var obj = service.save(dto);
-        return ResponseEntity.ok().body(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(method=RequestMethod.PUT)
