@@ -25,10 +25,10 @@ public class MembroService {
 
         var atribuicao = Atribuicao.stringToEnum(dto.getAtribuicao().toUpperCase());
         var pessoa = pessoaService.find(dto.getIdPessoa());
-        if (!pessoa.getFuncionario())
+        if (Boolean.FALSE.equals(pessoa.getFuncionario()))
             throw new NaoFuncionarioException("Id:" + dto.getIdPessoa() + "Nao é funcionário");
         var projeto = projetoService.find(dto.getIdProjeto());
-        if (atribuicao == Atribuicao.GERENTE && projeto.getIdGerente() != dto.getIdPessoa()) {
+        if (atribuicao == Atribuicao.GERENTE && !projeto.getIdGerente().equals(dto.getIdPessoa())) {
             projeto.setIdGerente(dto.getIdPessoa());
             projetoService.update(projeto);
         }

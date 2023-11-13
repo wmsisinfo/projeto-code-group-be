@@ -53,9 +53,9 @@ public class ProjetoService {
 
     public void delete(Long id) {
         var projeto = find(id);
-        if (projeto.getStatus() == "INICIADO" ||
-        projeto.getStatus() == "EM ANDAMENTO" ||
-        projeto.getStatus() == "ENCERRADO")
+        if (projeto.getStatus().equals("INICIADO") ||
+        projeto.getStatus().equals("EM ANDAMENTO") ||
+        projeto.getStatus().equals("ENCERRADO"))
             throw new DeleteProjetoForbidenException("Projeto nao pode ser excluido !");
         repo.delete(projeto);
     }
