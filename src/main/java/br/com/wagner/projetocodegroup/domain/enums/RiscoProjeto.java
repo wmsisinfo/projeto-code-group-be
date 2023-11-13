@@ -1,5 +1,6 @@
 package br.com.wagner.projetocodegroup.domain.enums;
 
+import br.com.wagner.projetocodegroup.services.exception.RiscoInvalidoException;
 import org.springframework.util.StringUtils;
 
 public enum RiscoProjeto {
@@ -29,7 +30,7 @@ public enum RiscoProjeto {
                 return r;
             }
         }
-        throw new IllegalArgumentException("Tipo inválido:" + risco);
+        throw new RiscoInvalidoException("Tipo inválido:" + risco);
     }
 
     public static RiscoProjeto toEnum(String risco) {
@@ -43,6 +44,6 @@ public enum RiscoProjeto {
                 return p;
             }
         }
-        throw new IllegalArgumentException("Risco inválido:" + risco);
+        throw new RiscoInvalidoException("Risco inválido:" + risco);
     }
 }

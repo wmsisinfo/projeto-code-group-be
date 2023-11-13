@@ -1,6 +1,8 @@
 package br.com.wagner.projetocodegroup.services;
 
 import br.com.wagner.projetocodegroup.domain.Projeto;
+import br.com.wagner.projetocodegroup.domain.enums.RiscoProjeto;
+import br.com.wagner.projetocodegroup.domain.enums.StatusProjeto;
 import br.com.wagner.projetocodegroup.dto.projetos.CreateProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
 import br.com.wagner.projetocodegroup.repository.ProjetoRepository;
@@ -25,12 +27,17 @@ public class ProjetoService {
     }
 
     public Projeto save(CreateProjetoDto dto) {
+        RiscoProjeto.stringToEnum(dto.getRisco().toUpperCase());
+        StatusProjeto.stringToEnum(dto.getStatus().toUpperCase());
         Projeto projeto = new Projeto(null, dto.getNome(), dto.getDataInicio(), dto.getDataPrevisaoFim(), dto.getDataFim(), dto.getDescricao(), dto.getStatus(), dto.getOrcamento(), dto.getRisco(), dto.getIdGerente());
         return repo.save(projeto);
     }
 
     public Projeto update(UpdateProjetoDto dto) {
         var newObj = repo.findById(dto.getId()).orElse(null);
+        RiscoProjeto.stringToEnum(dto.getRisco().toUpperCase());
+        StatusProjeto.stringToEnum(dto.getStatus().toUpperCase());
+
         if (newObj != null) {
             newObj.setNome(dto.getNome());
             newObj.setDescricao(dto.getDescricao());

@@ -57,3 +57,7 @@ Ssrc/main/java/br/com/wagner/projetocodegroup/resources/exception/StandardError.
 Usrc/main/java/br/com/wagner/projetocodegroup/resources/exception/ValidationError.java,6/e/6ef5b4931dbe12d5fa863995dfde06cfda23a058
 }
 Msrc/main/java/br/com/wagner/projetocodegroup/ProjetoCodeGroupApplication.java,5/0/503c9bafd8bcc13ea445d753cdbce604f8a7ac43
+‹
+[src/main/java/br/com/wagner/projetocodegroup/services/exception/RiscoInvalidoException.java,4/5/45f38a13a203c5e0bd189d447f4a6968ba9d1bfc
+“
+csrc/main/java/br/com/wagner/projetocodegroup/services/exception/StatusProjetoInvalidoException.java,2/e/2e6eb0e3a046f27a24c6e914505852eccd259f69
