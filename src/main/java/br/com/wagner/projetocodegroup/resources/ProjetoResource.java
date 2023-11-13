@@ -4,8 +4,8 @@ import br.com.wagner.projetocodegroup.domain.Projeto;
 import br.com.wagner.projetocodegroup.dto.projetos.CreateProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.ReadProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
-import br.com.wagner.projetocodegroup.services.exception.ProjetoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.wagner.projetocodegroup.resources.utils.Utils;
+import br.com.wagner.projetocodegroup.services.ProjetoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -35,14 +35,14 @@ public class ProjetoResource {
     @PostMapping
     public ResponseEntity<?> insert(@Valid @RequestBody CreateProjetoDto dto) {
         var obj = service.save(dto);
-        return getObjectResponseEntity(obj);
+        return Utils.getObjectResponseEntity(obj.getId());
     }
 
     @Transactional
     @PutMapping
     public ResponseEntity<?> update(@Valid @RequestBody UpdateProjetoDto dto) {
         Projeto obj = service.update(dto);
-        return getObjectResponseEntity(obj);
+        return Utils.getObjectResponseEntity(obj.getId());
     }
 
     @DeleteMapping(value="/{id}")
@@ -51,11 +51,4 @@ public class ProjetoResource {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-    private static ResponseEntity<Object> getObjectResponseEntity(Projeto obj) {
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-        return ResponseEntity.created(uri).build();
-    }
-
-
 }

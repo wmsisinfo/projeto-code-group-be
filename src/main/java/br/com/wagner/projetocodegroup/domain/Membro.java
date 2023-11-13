@@ -12,13 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "membros")
 public class Membro {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idprojeto", nullable = false)
-    private Long id;
+    private Long idProjeto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idpessoa", nullable = false)
-    private Projeto idpessoa;
+    private Pessoa pessoa;
 
 }

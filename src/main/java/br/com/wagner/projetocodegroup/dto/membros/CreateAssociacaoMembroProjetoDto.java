@@ -11,10 +11,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Getter
 @Setter
-public class AssociateMembro2ProjetoDto {
+public class CreateAssociacaoMembroProjetoDto {
 
     @NotNull
-    private Long id;
+    private Long idProjeto;
     @NotNull
-    private Projeto idPessoa;
+    private Long idPessoa;
+    @NotNull
+    private String atribuicao;
 }
