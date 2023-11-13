@@ -1,8 +1,6 @@
 package br.com.wagner.projetocodegroup.resources.exception;
 
-import br.com.wagner.projetocodegroup.services.exception.DeleteProjetoForbidenException;
-import br.com.wagner.projetocodegroup.services.exception.NaoFuncionarioException;
-import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
+import br.com.wagner.projetocodegroup.services.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -35,14 +33,25 @@ public class ResourceExceptionHandler {
     }
 
     @ExceptionHandler(DeleteProjetoForbidenException.class)
-    public ResponseEntity<StandardError> accountDelete(DeleteProjetoForbidenException e, HttpServletRequest request) {
+    public ResponseEntity<StandardError> checkDeleteProject(DeleteProjetoForbidenException e, HttpServletRequest request) {
         StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Nao e permitida a exclusao de projetos iniciados/em andamento ou encerrados", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
 
     @ExceptionHandler(NaoFuncionarioException.class)
-    public ResponseEntity<StandardError> accountDelete(NaoFuncionarioException e, HttpServletRequest request) {
-        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Nao e permitida a exclusao de projetos iniciados/em andamento ou encerrados", e.getMessage(), request.getRequestURI());
+    public ResponseEntity<StandardError> notAssociateNonWorkerMember(NaoFuncionarioException e, HttpServletRequest request) {
+        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Não é permitido associar pessoas que não sejam funcionários aos projetos", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+    }
+
+    @ExceptionHandler(RiscoInvalidoException.class)
+    public ResponseEntity<StandardError> invalidRisk(RiscoInvalidoException e, HttpServletRequest request) {
+        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Grau de risco inválido ou não definido", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+    }
+
+    public ResponseEntity<StandardError> invalidStatus(StatusProjetoInvalidoException e, HttpServletRequest request) {
+        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Status de projeto incorreto ou não definido", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
 }
