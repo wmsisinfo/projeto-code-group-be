@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig" ddlActionDbType="postgres">
+    <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="sourceDbValue" value="651b1d4c-d039-4752-b0b3-4abb6130cc8b" />
+    <option name="sourceModelValue" value="Default" />
+    <option name="targetDbValue" value="651b1d4c-d039-4752-b0b3-4abb6130cc8b" />
+    <option name="snapshotDbValue" value="651b1d4c-d039-4752-b0b3-4abb6130cc8b" />
+    <option name="snapshotModelValue" value="Default" />
     <option name="reverseEngineeringLastDbConnectionId" value="3eeb0c64-2256-4fe1-8109-030070232001" />
     <option name="reLastEntityCreationPackage" value="src/main/java/br/com/wagner/projetocodegroup" />
   </component>

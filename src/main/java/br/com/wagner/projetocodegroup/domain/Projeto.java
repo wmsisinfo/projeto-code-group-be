@@ -1,21 +1,24 @@
 package br.com.wagner.projetocodegroup.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "projeto")
 public class Projeto {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nome", nullable = false, length = 200)
@@ -41,5 +44,8 @@ public class Projeto {
 
     @Column(name = "risco", length = 45)
     private String risco;
+
+    @Column(name = "idgerente")
+    private Long idGerente;
 
 }
