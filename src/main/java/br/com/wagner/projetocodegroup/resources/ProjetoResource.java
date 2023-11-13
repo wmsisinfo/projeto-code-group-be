@@ -16,6 +16,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping(value="/api/v1/projeto")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProjetoResource {
 
     final ProjetoService service;
