@@ -1,11 +1,9 @@
 
 i
-java:S1452"&Remove usage of generic wildcard type.(ËîÊ¡8‰çéÉ¼1J$a9dea3ad-c043-4c2e-b330-46e4b4e5fe48
+java:S1452"&Remove usage of generic wildcard type.(ËîÊ¡8‰çéÉ¼1J$e6506853-8764-4f3a-b109-445da917d156
 n
-java:S1452$"&Remove usage of generic wildcard type.(Ëó‹åûÿÿÿÿ8‹çéÉ¼1J$f7025f26-f374-4989-98df-fd0fde838693
+java:S1452$"&Remove usage of generic wildcard type.(Ëó‹åûÿÿÿÿ8‹çéÉ¼1J$111d1bf3-9850-4659-a32c-9e08241f8757
 i
-java:S1452+"&Remove usage of generic wildcard type.(ÖÁ¶8‹çéÉ¼1J$b862a7c1-667e-4e82-90e1-9285fa06130a
+java:S1452+"&Remove usage of generic wildcard type.(ÖÁ¶8‹çéÉ¼1J$ec0f6e12-115f-4ce0-b79d-58fe424bfedf
 i
-java:S14522"&Remove usage of generic wildcard type.(ˆŸ‚»8ç’‰Ë¼1J$8f6172b7-05de-4613-9cad-6664a602efea
-›
-java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8¡ØûÉ¼1J$bbce78f3-58a1-4f89-b73c-8ea0b374f484
+java:S14522"&Remove usage of generic wildcard type.(ˆŸ‚»8ç’‰Ë¼1J$d8213273-290d-46dd-8399-d1897079af66

@@ -1,19 +1,22 @@
-package br.com.wagner.projetocodegroup.services.exception;
+package br.com.wagner.projetocodegroup.services;
 
 import br.com.wagner.projetocodegroup.domain.Projeto;
 import br.com.wagner.projetocodegroup.dto.projetos.CreateProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
 import br.com.wagner.projetocodegroup.repository.ProjetoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.wagner.projetocodegroup.services.exception.DeleteProjetoForbidenException;
+import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 public class ProjetoService {
+    final ProjetoRepository repo;
 
-    @Autowired
-    ProjetoRepository repo;
+    public ProjetoService(ProjetoRepository repo) {
+        this.repo = repo;
+    }
 
     public Projeto find(Long codigo) {
         Optional<Projeto> obj = repo.findById(codigo);
@@ -29,7 +32,6 @@ public class ProjetoService {
     public Projeto update(UpdateProjetoDto dto) {
         var newObj = repo.findById(dto.getId()).orElse(null);
         if (newObj != null) {
-
             newObj.setNome(dto.getNome());
             newObj.setDescricao(dto.getDescricao());
             newObj.setRisco(dto.getRisco());
@@ -40,13 +42,17 @@ public class ProjetoService {
             newObj.setDataPrevisaoFim(dto.getDataPrevisaoFim());
             newObj.setIdGerente(dto.getIdGerente());
             repo.save(newObj);
-        };
+        }
         return newObj;
+    }
+
+    public Projeto update(Projeto projeto) {
+        repo.save(projeto);
+        return projeto;
     }
 
     public void delete(Long id) {
         var projeto = find(id);
-
         if (projeto.getStatus() == "INICIADO" ||
         projeto.getStatus() == "EM ANDAMENTO" ||
         projeto.getStatus() == "ENCERRADO")

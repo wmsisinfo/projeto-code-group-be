@@ -13,7 +13,7 @@ public class ReadMembrosDto {
     }
 
     public ReadMembrosDto(Membro membro) {
-        this.id = membro.getId();
+        this.id = membro.getIdProjeto();
 
 
 

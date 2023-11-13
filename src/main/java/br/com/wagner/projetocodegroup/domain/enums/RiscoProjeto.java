@@ -1,7 +1,5 @@
 package br.com.wagner.projetocodegroup.domain.enums;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.util.StringUtils;
 
 public enum RiscoProjeto {
@@ -20,7 +18,7 @@ public enum RiscoProjeto {
         return this.risco;
     }
 
-    public static RiscoProjeto StringToEnum(String risco) {
+    public static RiscoProjeto stringToEnum(String risco) {
 
         if (!StringUtils.hasLength(risco)) {
             return null;
@@ -41,7 +39,7 @@ public enum RiscoProjeto {
         }
 
         for (RiscoProjeto p: RiscoProjeto.values()) {
-            if (risco == p.getRisco()) {
+            if (risco.equals(p.getRisco())) {
                 return p;
             }
         }

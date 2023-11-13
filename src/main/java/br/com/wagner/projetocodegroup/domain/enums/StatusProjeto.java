@@ -23,7 +23,7 @@ public enum StatusProjeto {
         return this.status;
     }
 
-    public static StatusProjeto StringToEnum(String status) {
+    public static StatusProjeto stringToEnum(String status) {
 
         if (!StringUtils.hasLength(status)) {
             return null;

@@ -1,6 +1,7 @@
 package br.com.wagner.projetocodegroup.resources.exception;
 
 import br.com.wagner.projetocodegroup.services.exception.DeleteProjetoForbidenException;
+import br.com.wagner.projetocodegroup.services.exception.NaoFuncionarioException;
 import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +36,12 @@ public class ResourceExceptionHandler {
 
     @ExceptionHandler(DeleteProjetoForbidenException.class)
     public ResponseEntity<StandardError> accountDelete(DeleteProjetoForbidenException e, HttpServletRequest request) {
+        StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Nao e permitida a exclusao de projetos iniciados/em andamento ou encerrados", e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+    }
+
+    @ExceptionHandler(NaoFuncionarioException.class)
+    public ResponseEntity<StandardError> accountDelete(NaoFuncionarioException e, HttpServletRequest request) {
         StandardError err = new StandardError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(), "Nao e permitida a exclusao de projetos iniciados/em andamento ou encerrados", e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
     }
