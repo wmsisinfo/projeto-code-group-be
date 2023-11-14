@@ -1,6 +1,7 @@
 package br.com.wagner.projetocodegroup.resources;
 
 import br.com.wagner.projetocodegroup.domain.Projeto;
+import br.com.wagner.projetocodegroup.dto.pessoas.ReadPessoaDto;
 import br.com.wagner.projetocodegroup.dto.projetos.CreateProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.ReadProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/api/v1/projeto")
@@ -30,6 +32,14 @@ public class ProjetoResource {
         var projeto = service.find(id);
         var dto = new ReadProjetoDto(projeto);
         return ResponseEntity.ok().body(dto);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> findAll(){
+        var list = service.findAll();
+        List<ReadProjetoDto> dto = list.stream().map(obj -> new ReadProjetoDto(obj)).toList();
+        return ResponseEntity.ok().body(dto);
+
     }
 
     @Transactional

@@ -10,6 +10,7 @@ import br.com.wagner.projetocodegroup.services.exception.DeleteProjetoForbidenEx
 import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,6 +25,10 @@ public class ProjetoService {
         Optional<Projeto> obj = repo.findById(codigo);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Cadastro não encontrado:" + codigo + "." + Projeto.class.getName()));
+    }
+
+    public List<Projeto> findAll() {
+        return repo.findAll();
     }
 
     public Projeto save(CreateProjetoDto dto) {

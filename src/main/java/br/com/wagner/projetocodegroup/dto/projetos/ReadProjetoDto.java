@@ -23,12 +23,13 @@ public class ReadProjetoDto implements Serializable {
         this.dataInicio = projeto.getDataInicio();
         this.nome = projeto.getNome();
         this.descricao = projeto.getDescricao();
-        // todo: ler a lista de membros do projeto
         this.dataPrevisaoFim = projeto.getDataPrevisaoFim();
         this.orcamento = projeto.getOrcamento();
         this.status = projeto.getStatus();
         this.idGerente = projeto.getIdGerente();
+        this.risco = projeto.getRisco();
     }
+
 
     private static final long serialVersionUID = 1L;
     private Long id;
@@ -38,8 +39,8 @@ public class ReadProjetoDto implements Serializable {
     private LocalDate dataFim;
 
     private String descricao;
-
     private String status;
+    private String risco;
 
     private Double orcamento;
     private Long idGerente;
