@@ -61,3 +61,7 @@ Msrc/main/java/br/com/wagner/projetocodegroup/ProjetoCodeGroupApplication.java,
 [src/main/java/br/com/wagner/projetocodegroup/services/exception/RiscoInvalidoException.java,4/5/45f38a13a203c5e0bd189d447f4a6968ba9d1bfc
 “
 csrc/main/java/br/com/wagner/projetocodegroup/services/exception/StatusProjetoInvalidoException.java,2/e/2e6eb0e3a046f27a24c6e914505852eccd259f69
+{
+Ksrc/main/java/br/com/wagner/projetocodegroup/dto/pessoas/ReadPessoaDto.java,9/a/9a221b63d997a6d424cd9e20afe13281ed935434
+z
+Jsrc/main/java/br/com/wagner/projetocodegroup/resources/PessoaResource.java,c/6/c6cd7c5d45d25f199d7eb0b84b67e7b5477252f0

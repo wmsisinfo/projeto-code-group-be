@@ -5,6 +5,7 @@ import br.com.wagner.projetocodegroup.repository.PessoaRepository;
 import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,5 +21,10 @@ public class PessoaService {
         Optional<Pessoa> obj = repo.findById(codigo);
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Cadastro não encontrado:" + codigo + "." + Pessoa.class.getName()));
+    }
+
+
+    public List<Pessoa> listFuncionarios(){
+        return repo.listFuncionarios();
     }
 }
