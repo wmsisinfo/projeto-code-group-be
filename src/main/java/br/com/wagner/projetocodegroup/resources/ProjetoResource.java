@@ -46,14 +46,14 @@ public class ProjetoResource {
     @PostMapping
     public ResponseEntity<?> insert(@Valid @RequestBody CreateProjetoDto dto) {
         var obj = service.save(dto);
-        return Utils.getObjectResponseEntity(obj.getId());
+        return Utils.getPostObjectResponseEntity(obj.getId());
     }
 
     @Transactional
     @PutMapping
     public ResponseEntity<?> update(@Valid @RequestBody UpdateProjetoDto dto) {
         Projeto obj = service.update(dto);
-        return Utils.getObjectResponseEntity(obj.getId());
+        return Utils.getPutObjectResponseEntity(obj.getId());
     }
 
     @DeleteMapping(value="/{id}")

@@ -25,6 +25,6 @@ public class MembroResource {
     @PostMapping
     public ResponseEntity<?> insert(@Valid @RequestBody CreateAssociacaoMembroProjetoDto dto) {
         var obj = service.save(dto);
-        return Utils.getObjectResponseEntity(obj.getIdProjeto());
+        return Utils.getPostObjectResponseEntity(obj.getIdProjeto());
     }
 }
