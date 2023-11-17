@@ -8,6 +8,7 @@ import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
 import br.com.wagner.projetocodegroup.repository.ProjetoRepository;
 import br.com.wagner.projetocodegroup.services.exception.DeleteProjetoForbidenException;
 import br.com.wagner.projetocodegroup.services.exception.ObjectNotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class ProjetoService {
     }
 
     public List<Projeto> findAll() {
-        return repo.findAll();
+        return repo.findAll(Sort.by(Sort.Direction.ASC,"id"));
     }
 
     public Projeto save(CreateProjetoDto dto) {

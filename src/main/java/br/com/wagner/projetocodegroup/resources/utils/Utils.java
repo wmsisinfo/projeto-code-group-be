@@ -6,12 +6,11 @@ import java.net.URI;
 
 public class Utils {
     private Utils(){}
-    public static ResponseEntity<Object> getPostObjectResponseEntity(Long id) {
+    public static ResponseEntity<Object> getPostObjectResponseEntity(Long id, Object dto) {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
-        return ResponseEntity.created(uri).build();
+        return ResponseEntity.created(uri).body(dto);
     }
-    public static ResponseEntity<Object> getPutObjectResponseEntity(Long id) {
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri();
-        return ResponseEntity.ok(uri);
+    public static ResponseEntity<Object> getPutObjectResponseEntity(Object dto) {
+        return ResponseEntity.ok(dto);
     }
 }

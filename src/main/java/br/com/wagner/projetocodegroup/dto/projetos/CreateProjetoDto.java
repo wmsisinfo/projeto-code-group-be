@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CreateProjetoDto implements Serializable {
     private static final long serialVersionUID = 1L;
+    private Long id;
     @NotEmpty
     private String nome;
     @NotNull

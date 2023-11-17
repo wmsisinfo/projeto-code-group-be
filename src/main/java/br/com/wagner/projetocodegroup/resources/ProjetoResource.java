@@ -1,7 +1,6 @@
 package br.com.wagner.projetocodegroup.resources;
 
 import br.com.wagner.projetocodegroup.domain.Projeto;
-import br.com.wagner.projetocodegroup.dto.pessoas.ReadPessoaDto;
 import br.com.wagner.projetocodegroup.dto.projetos.CreateProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.ReadProjetoDto;
 import br.com.wagner.projetocodegroup.dto.projetos.UpdateProjetoDto;
@@ -10,10 +9,8 @@ import br.com.wagner.projetocodegroup.services.ProjetoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -35,25 +32,25 @@ public class ProjetoResource {
     }
 
     @GetMapping
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<List<ReadProjetoDto>> findAll(){
         var list = service.findAll();
-        List<ReadProjetoDto> dto = list.stream().map(obj -> new ReadProjetoDto(obj)).toList();
+        List<ReadProjetoDto> dto = list.stream().map(ReadProjetoDto::new).toList();
         return ResponseEntity.ok().body(dto);
 
     }
-
     @Transactional
     @PostMapping
     public ResponseEntity<?> insert(@Valid @RequestBody CreateProjetoDto dto) {
         var obj = service.save(dto);
-        return Utils.getPostObjectResponseEntity(obj.getId());
+        dto.setId(obj.getId());
+        return Utils.getPostObjectResponseEntity(obj.getId(), dto);
     }
 
     @Transactional
     @PutMapping
     public ResponseEntity<?> update(@Valid @RequestBody UpdateProjetoDto dto) {
         Projeto obj = service.update(dto);
-        return Utils.getPutObjectResponseEntity(obj.getId());
+        return Utils.getPutObjectResponseEntity(obj);
     }
 
     @DeleteMapping(value="/{id}")
